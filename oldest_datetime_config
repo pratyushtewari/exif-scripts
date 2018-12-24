@@ -1,0 +1,30 @@
+%Image::ExifTool::UserDefined = (
+    'Image::ExifTool::Composite' => {
+        # Select oldest date from a number of date tags
+        OldestDateTime => {
+            Desire => {
+                0 => 'FileModifyDate',
+                1 => 'MDItemFSContentChangeDate',
+                2 => 'FileCreateDate',
+                3 => 'MDItemFSCreationDate',
+                4 => 'ModifyDate',
+                5 => 'CreateDate',
+                6 => 'DateTimeCreated',
+                7 => 'DateTimeOriginal',
+            },
+            ValueConv => q{
+                my $oldest = undef;
+                for my $date (@val) {
+                    next if not defined $date or $date lt '1970:01:02';
+                    $date =~ s/[+-]\d{2}:\d{2}$//; # Strip TimeZone
+                    if ($date && (!$oldest || $date lt $oldest)) {
+                        $oldest = $date;
+                    }
+                }
+                return $oldest;
+            },
+        },
+    },
+);
+
+1;
