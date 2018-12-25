@@ -11,21 +11,23 @@
                 5 => 'CreateDate',
                 6 => 'DateTimeCreated',
                 7 => 'DateTimeOriginal',
+                8 => 'GPSDateTime',
             },
             ValueConv => q{
                 my $oldest = undef;
                 for my $date (@val) {
                     next if not defined $date or $date lt '1970:01:02';
-                    $date =~ s/[+-]\d{2}:\d{2}$//; # Strip TimeZone
+                    # Keep the timezone for now
+                    #$date =~ s/([+-]\d{2}:\d{2}$)|([Z]$)//; # Strip TimeZone 2018:12:24 10:57:48'-05:00' or 2018:10:18 07:19:58'Z'
                     if ($date && (!$oldest || $date lt $oldest)) {
                         $oldest = $date;
                     }
                 }
                 return $oldest;
             },
+            PrintConv => '$self->ConvertDateTime($val)',
         },
     },
 );
 
 1;
-
