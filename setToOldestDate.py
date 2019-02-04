@@ -52,6 +52,7 @@ for dirName, subdirList, fileList in os.walk(absolutepath):
         subprocess.Popen([command], stdout=PIPE, universal_newlines=True, shell=True)
         # To print on top of last output, add ",end = '\r'" at the end of the print statement
         print (str(b) + " --> " + " --> " + createtime)
+        time.sleep(.1)
 
 print ("")
 print ("Total files updated : " + str(total))
