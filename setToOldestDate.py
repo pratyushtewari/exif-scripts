@@ -34,7 +34,7 @@ for dirName, subdirList, fileList in os.walk(absolutepath):
         filename = str(b).replace(" ", "\ ").replace("'", "\'")
         # Change all the times to the oldest time
         #exiftool -overwrite_original_in_place "-FileModifyDate<OldestDateTime" "-ModifyDate<OldestDateTime" "-DateTimeOriginal<OldestDateTime" "-CreateDate<OldestDateTime" "-GPSDateTime<OldestDateTime" -S -s FILEorDIR
-        command = 'exiftool -overwrite_original_in_place "-FileModifyDate<OldestDateTime" "-ModifyDate<OldestDateTime" "-DateTimeOriginal<OldestDateTime" "-CreateDate<OldestDateTime" "-GPSDateTime<OldestDateTime" -S -s -ee ' + filename
+        command = 'exiftool -overwrite_original "-FileModifyDate<OldestDateTime" "-ModifyDate<OldestDateTime" "-DateTimeOriginal<OldestDateTime" "-CreateDate<OldestDateTime" "-GPSDateTime<OldestDateTime" -S -m -progress -ee ' + ' ' + filename
         subprocess.Popen([command], stdout=PIPE, universal_newlines=True, shell=True)
         
         # get createtime
@@ -48,7 +48,7 @@ for dirName, subdirList, fileList in os.walk(absolutepath):
         #subprocess.run(["TZ=" + timezone + " touch -t "+  time + " " + str(b).replace(" ", "\ ")], shell=True, check=True)
         # global total
         total += 1
-        command = 'exiftool "-filename<OldestDateTime" -d %Y%m%d_%H%M%S%%-c.%%e -S -s -ee ' + filename
+        command = 'exiftool "-filename<OldestDateTime" -d %Y%m%d_%H%M%S%%-c.%%e -S -m -ee -progress ' + ' ' + filename
         subprocess.Popen([command], stdout=PIPE, universal_newlines=True, shell=True)
         # To print on top of last output, add ",end = '\r'" at the end of the print statement
         print (str(b) + " --> " + " --> " + createtime)
