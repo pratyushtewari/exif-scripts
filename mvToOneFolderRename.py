@@ -48,14 +48,11 @@ for dir in dirs:
       while os.path.exists(dst_file):
           count += 1
           dst_file = os.path.join(dst_dir, '%s-%d%s' % (head, count, tail))
-      # print 'Renaming %s to %s' % (file, dst_file)
-      # print dst_file
-      # print os.path.abspath(file)
-      # print os.path.abspath(dst_file)
-      fromfile = os.path.join(os.path.abspath(dir), file)
+     
+      fromfile = os.path.join(dirpath, file)
       tofile = os.path.abspath(dst_file)
+      # print('Renaming %s to %s' % (fromfile, tofile))
       countofFiles += 1
       os.rename(fromfile, tofile)
       print("Moved %s files." % countofFiles, end='\r')
-    break
 print('Done: Moved %s files' % countofFiles)
