@@ -56,12 +56,12 @@ for dirName, subdirList, fileList in os.walk(absolutepath):
         total += 1
 
         # Rename the file
-        command = 'exiftool "-filename<OldestDateTime" -d %Y%m%d_%H%M%S%%-c.%%e -S -m -ee -progress -q -q ' + filename
+        command = 'exiftool "-filename<OldestDateTime" -d PXL_%Y%m%d_%H%M%S%%-c.%%e -S -m -ee -progress -q -q ' + filename
         subprocess.Popen([command], stdout=PIPE, universal_newlines=True, shell=True)
         # To print on top of last output, add ",end = '\r'" at the end of the print statement
         # print (filename + " --> " + createtime  ,end = '\r');
         print ("Processing " + str(total) + " of " + str(len(fileList)), end = '\r');
-        time.sleep(.5)
+        time.sleep(.25)
 
 print ("")
 print ("Total files updated : " + str(total))
