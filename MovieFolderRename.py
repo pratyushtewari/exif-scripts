@@ -29,7 +29,7 @@ for (dirpath, dirnames, filenames) in walk(dir):
   dirparent = os.path.dirname(dirpath)
   dirname = os.path.basename(dirpath)
   # remove the format text
-  cleandirname = re.sub("\[BluRay\]|\[[0-9]*p\]|\[YTS.*\]|\[Webrip\]", "", dirname, flags=re.I).strip()
+  cleandirname = re.sub("\[BluRay\]|\[[0-9]*p\]|\[YTS.*\]|\[Webrip\]|\[WEBRip.x265-RARBG\]|\[2160p\]|\[x265\]|\[10bit\]|\[AAC5\]|\[4K\]", "", dirname, flags=re.I).strip()
   nameAndYear = cleandirname.rsplit('(',1)
   newdirpath = dirpath # will be updated in next line
   newdirName = dirname # will be update in next line
@@ -56,6 +56,16 @@ for (dirpath, dirnames, filenames) in walk(dir):
     newfilename = newdirName + '.' + extension[1]
     oldFilePath = os.path.join(newdirpath, file)
     newFilePath = os.path.join(newdirpath, newfilename)
+    
+    if basename.lower().endswith(".jpg"):
+      print(" Deleted >> " + oldFilePath)
+      os.remove(oldFilePath)
+      continue
+
+    if basename.lower().endswith(".txt"):
+      print(" Deleted >> " + oldFilePath)
+      os.remove(oldFilePath)
+      continue
 
     # check if the newfilename already exists, in that case increment the file name
     count = 0
