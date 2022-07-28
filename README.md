@@ -10,6 +10,8 @@ Save the **[oldest_datetime_config](https://github.com/pratyushtewari/exif-scrip
 
 You can find these in a script here but I have found that running the commands in the pic folder I mentioned in the options below are much much faster than running these through python script [exif-scripts/setToOldestDate.py](setToOldestDate.py) For faster processing you can run these commands directly in powershell from the pic folder you are planning.
 
+If you are running WSL then run these commands from poweshell and not WSL are the file system read write from the windows virtualization will blow up your ram and will slow down the process to a halt.
+
 :safety_vest: Note that these scripts are recursive and will affect all the subfolders are well. 
 
 Well … now — pick your options:
