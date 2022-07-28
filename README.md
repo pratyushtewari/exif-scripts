@@ -14,7 +14,7 @@ You can find these in a script here but I have found that running the commands i
 
 Well … now — pick your options:
 
-### Option 1 - In case you need to pick the date from the file name
+### Option 1 - In case you need to pick the date from the file name. This is pretty flexible and fuzzy parser but if you want it to be absolutely sure then you can remane the file to include yyyymmdd_hhmmss and remove all the other number before it (after is OK).
 
 ```jsx
 exiftool "-FileModifyDate<filename" −overwrite_original -S -m -progress -ee -q -q ./
