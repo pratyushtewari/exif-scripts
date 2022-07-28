@@ -39,3 +39,6 @@ adb push -a . /sdcard/DCIM/Camera/
 ```
 
   -a is to preserve the attributes.
+
+## **:hourglass_flowing_sand: Refresh Android Media Store**
+As a last step, you need to refresh the android media store database to let google photos know which new files to backup. Currently it does not always detect automatically so why wait for that. Install [Refresh MediaStore](https://play.google.com/store/apps/details?id=com.kotorimura.refreshmediastore) and run it after the adb push is complete from the phone. Then you can open Google Photos and see that the backup is starting.
