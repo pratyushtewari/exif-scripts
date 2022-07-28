@@ -4,9 +4,9 @@
 
 [Installing ExifTool](https://exiftool.org/install.html#Windows)
 
-## **Step 0.1**
+## **:point_right: Step 0.1**
 
-Save the **[oldest_datetime_config](https://github.com/pratyushtewari/exif-scripts/blob/master/oldest_datetime_config)** in the home folder `C:\Users\YOURUSERNAME`
+Save the **[oldest_datetime_config](https://github.com/pratyushtewari/exif-scripts/blob/master/oldest_datetime_config)** in the home folder `C:\Users\YOURUSERNAME` or in your home directory `~` or in the same folder where you have installed exiftool. This step is important for the following steps to be successful.
 
 You can find these in a script here but I have found that running the commands in the pic folder I mentioned in the options below are much much faster than running these through python script [exif-scripts/setToOldestDate.py](setToOldestDate.py) For faster processing you can run these commands directly in powershell from the pic folder you are planning.
 
