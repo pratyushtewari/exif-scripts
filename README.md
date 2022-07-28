@@ -1,4 +1,4 @@
-# Set to oldest date from Exif meta or file name in powershell
+# Set to oldest date from Exif meta or file name
 
 ## Step 0 - install exiftool from below
 
